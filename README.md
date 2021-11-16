@@ -5,8 +5,6 @@ This back end application is a challenge about the creation of a crud api rest i
 
 #### try the application with the following link:
 
-With the Heroku deployment you can visit the Swagger documentation-ui through this url:
-
 [client-api-challenge.herokuapp.com](https://client-api-challenge.herokuapp.com/)
 _(the loading time until the page loads may take long if the application has not been deployed recently)_
 
