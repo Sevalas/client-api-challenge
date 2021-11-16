@@ -1,40 +1,46 @@
-# SPRING BOOT CHALLENGE
-## _Api rest task manager_
+# CLIENT SPRING BOOT API CHALLENGE
+## _Crud api rest client maintainer_
 
-This back end application is a challenge about the creation of a task manager in Java.
+This back end application is a challenge about the creation of a crud api rest in Java.
 
-### NOW WITH DOCKER CONTAINERIZED AND CLOUD DEPLOYMENT IN HEROKU!!
+#### try the application with the following link:
 
 With the Heroku deployment you can visit the Swagger documentation-ui through this url:
 
-[api-spring-challenge.herokuapp.com/swagger-ui.html](https://api-spring-challenge.herokuapp.com/swagger-ui.html)
+[client-api-challenge.herokuapp.com](https://client-api-challenge.herokuapp.com/)
 _(the loading time until the page loads may take long if the application has not been deployed recently)_
+
+This application implements spring-boot-starter-security authentication, which means that we need to authenticate as user,
+In this heroku instance we can access with the following credentials
+- User: usumaki
+- Password: spiral
 
 ## Features
 
-- Swagger-ui interfaced
+- Swagger-ui interface
 - Api rest Crud
 - Code with unit testing
 - Docker Containerization
-- Heroku deployment configuration
+- Cloud deployment with Heroku server
+- Authentication system
 
 ## Tech:
 - Java 8
 - Maven 3.8.3
 - Spring Boot v2.5.6
-- Swagge2 3.0.0
+- Swagger2 3.0.0
 - Jackson 2.13.0
-- Junit
-- Docker preconfigured file
-- Heroku preconfigured file
+- Junit 4.13.2
+- Docker 20.10
+- Heroku 7.59.1
 
 ## Installation
 
 
 Clone the source code
 ```sh
-git clone https://github.com/Sevalas/spring-challenge.git
-cd spring-challenge/springApp
+git clone https://github.com/Sevalas/client-api-challenge.git
+cd client-api-challenge/springApp
 ```
 ### To execute the application from spring app directly:
 Resolve/install maven dependencies and run spring-boot start command
@@ -45,8 +51,8 @@ mvn spring-boot:run
 ### To execute the application from Docker image:
 With Docker installed in the system, build the image with Dockerfile instructions and then run it
 ```sh
-docker build -t spring-app/desafio-mantenedor .
-docker run -p 8080:8080 spring-app/desafio-mantenedor
+docker build -t spring-app/client-api-challenge .
+docker run -p 8080:8080 spring-app/client-api-challenge
 ```
 
 
@@ -54,40 +60,38 @@ docker run -p 8080:8080 spring-app/desafio-mantenedor
 
 The deployment default host is http://localhost:8080/.
 While the application is running, we can use five different endpoints:
-- [POST]{{host}}/task-manager/add-task
-- [GET]{{host}}/task-manager/get-task-list
-- [GET]{{host}}/task-manager/get-task/{task-id}
-- [PUT]{{host}}/task-manager/update-task/{task-id}
-- [DELETE]{{host}}/task-manage/delete-task/{task-id}
+- [GET]{{host}}/get-list-of-all-clients
+- [GET]{{host}}/get-client-by-email/{{email}}
+- [GET]{{host}}/get-client-by-id/{{id}}
+- [POST]{{host}}/create-client
+- [PUT]{{host}}/update-client-by-email/{{email}}
+- [PUT]{{host}}/update-client-by-id/{{id}}
+- [DELETE]{{host}}/delete-client-by-email/{{email}}
+- [DELETE]{{host}}/delete-client-by-id/{{id}}
 
 ✨**With Swagger we can use the documentation-ui through this url**✨
 [{{host}}/swagger-ui.html](http://localhost:8080/swagger-ui.html)
 
-The Interface of a task in this application is:
+The Interface of a Client in this application is:
 - String id
-- String reporterName
-- String assigneeName
-- String creationDate
-- String updateDate
-- String title
-- String description
-- String status
+- String email
+- String names
+- String lastNames
+- String type
+- String phone
+- String country
 
-Example of json body request to add or update a task:
+Example of json body request to create or update a Client:
 ```sh
 {
-  "reporterName": "Sevalas",
-  "assigneeName": "GitUser",
-  "creationDate": "Fri Nov 05 11:57:10 CLST 2021",
-  "updateDate": "Fri Nov 05 11:57:10 CLST 2021",
-  "title": "Clone and Use the task manager Application",
-  "description": "Follow the README instructions, deploy and test the application",
-  "status": "Open"
+  "email": "Jhon@test.com",
+  "names": "Jhon",
+  "lastNames": "Test",
+  "type": "Costumer",
+  "phone": "+66-6666666",
+  "country": "Bangladesh"
 }
 ```
-## Considerations
-
-This application has only runtime persistence, no db connections, however, a constant tasks list are initialize with the application for the testings reason.
 
 ## Thanks for use this application, All feedback is highly appreciated
 
