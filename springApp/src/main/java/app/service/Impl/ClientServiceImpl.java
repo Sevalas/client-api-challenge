@@ -134,6 +134,7 @@ public class ClientServiceImpl implements ClientService {
             ClientModel requestClientModel = ClientMapper.returnClientModelFromMapWithoutId(clientModelMap);
 
             throwClientExistenceExceptionById(clientId,false);
+            throwClientExistenceExceptionByEmail(requestClientModel.getEmail(),true);
 
             UpdateResult updateResult = returnUpdatedResultOfUpdateClientById(clientId,requestClientModel);
             String responseObject = Constant.UPDATE_PROCESS_MESSAGE.
